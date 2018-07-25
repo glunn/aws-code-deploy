@@ -1,15 +1,15 @@
 {
-  "name": "aws-code-deploy",
+  "name": "aws-code-deploy-mod",
   "version": "1.0.8",
-  "description": "Bash script to easily deploy applications with AWS Code Deploy.",
-  "author": "TechPivot",
+  "description": "Bash script to easily deploy applications with AWS Code Deploy (modified).",
+  "author": "Abbie",
   "main": "bin/aws-code-deploy.sh",
   "bin": { 
     "aws-code-deploy": "./bin/aws-code-deploy.sh"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/techpivot/aws-code-deploy.git"
+    "url": "git+https://github.com/glunn/aws-code-deploy.git"
   },
   "license": "MIT",
   "keywords": [
