@@ -1,3 +1,14 @@
+DEPLOY_DIR="$HOME/poached/poached-wordpress"
+AWS_CODE_DEPLOY_REGION="us-west-2"
+AWS_CODE_DEPLOY_APPLICATION_NAME="poached-web"
+AWS_CODE_DEPLOY_DEPLOYMENT_CONFIG_NAME=CodeDeployDefault.AllAtOnce
+AWS_CODE_DEPLOY_DEPLOYMENT_GROUP_NAME="staging"
+AWS_CODE_DEPLOY_APP_SOURCE="$HOME/poached/poached-wordpress"
+AWS_CODE_DEPLOY_S3_FILENAME="poached-web-{BRANCH}-{SHORT_COMMIT}-v{BUILD_NUM}"
+AWS_CODE_DEPLOY_S3_BUCKET="builds.poachedjobs.com"
+AWS_CODE_DEPLOY_S3_KEY_PREFIX="/www"
+AWS_CODE_DEPLOY_S3_LIMIT_BUCKET_FILES=10
+
 #!/usr/bin/env bash
 
 set +e
@@ -326,7 +337,6 @@ fi
 # ----- Application Source -----
 h1 "Step 6: Checking Application Source"
 APP_SOURCE=$(readlink -f "${AWS_CODE_DEPLOY_APP_SOURCE:-.}")
-run command "echo $PWD"
 
 if [ ! -d "$APP_SOURCE" -a ! -e "$APP_SOURCE" ]; then
   # Note: Use original variable for output as the readlink can potentially evaluate to ""
